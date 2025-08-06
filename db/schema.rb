@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_05_190430) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_06_015528) do
+  create_table "seasons", force: :cascade do |t|
+    t.boolean "joinable", default: true, null: false
+    t.string "join_code", limit: 64
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["join_code"], name: "index_seasons_on_join_code", unique: true
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
@@ -18,6 +26,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_05_190430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer "season_id", null: false
+    t.integer "user_id", null: false
+    t.string "code", limit: 3, default: "", null: false
+    t.boolean "admin", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["season_id", "code"], name: "index_teams_on_season_id_and_code", unique: true
+    t.index ["season_id", "user_id"], name: "index_teams_on_season_id_and_user_id", unique: true
+    t.index ["season_id"], name: "index_teams_on_season_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

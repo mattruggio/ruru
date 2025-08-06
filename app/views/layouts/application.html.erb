@@ -23,6 +23,22 @@
   </head>
 
   <body>
+    <header>
+      <h1>Retro Live</h1>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <% if authenticated? %>
+            <li><%= link_to "Logout", Current.session, data: { turbo_method: :delete } %></li>
+          <% else %>
+            <li><%= link_to "Login", new_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <hr>
+    <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+    <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
     <%= yield %>
   </body>
 </html>
