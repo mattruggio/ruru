@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :create_season_forms, only: %i[new create]
 
-  resources :locate_season_forms, only: %i[new create]
+  resources :validate_join_code_forms, only: %i[new create]
 
   resources :join_season_forms, only: %i[new create]
 

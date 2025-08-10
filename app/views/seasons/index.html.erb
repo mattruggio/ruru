@@ -4,7 +4,7 @@
 
 <ul>
   <li><%= link_to "Create New Season", new_create_season_form_path %></li>
-  <li><%= link_to "Join Season", new_locate_season_form_path %></li>
+  <li><%= link_to "Join Season", new_validate_join_code_form_path %></li>
 </ul>
 
 <% if @seasons.any? %>
@@ -13,6 +13,7 @@
       <tr>
         <th>Created At</th>
         <th>State</th>
+        <th>Admin</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
         <tr>
           <td><%= link_to season.created_at, season %></td>
           <td><%= season.workflow_state.humanize %></td>
+          <td><%= season.admin?(Current.user) ? "Yes" : "No" %></td>
         </tr>
       <% end %>
     </tbody>

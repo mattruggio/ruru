@@ -5,7 +5,7 @@ RSpec.describe CreateSeasonForm, type: :model do
 
   let(:chicago_team_code) { "CHI" }
 
-  subject(:form) { CreateSeasonForm.new(owner: matty, owner_team_code: chicago_team_code) }
+  subject(:form) { CreateSeasonForm.new(user: matty, team_code: chicago_team_code) }
 
   it "creates new season" do
     expect(form).to be_valid
@@ -14,7 +14,7 @@ RSpec.describe CreateSeasonForm, type: :model do
     expect(form.season).to be_persisted
   end
 
-  it "creates owner team" do
+  it "creates team" do
     expect(form).to be_valid
     expect(form.save).to be_truthy
 

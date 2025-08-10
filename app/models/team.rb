@@ -42,4 +42,16 @@ class Team < ApplicationRecord
     presence: true,
     length: { maximum: 3 },
     inclusion: { allow_blank: true, in: TEAM_CODES }
+
+  after_commit :broadcast_lobby_update
+
+  def not_admin?
+    !admin?
+  end
+
+  private
+
+  def broadcast_lobby_update
+    season.broadcast_async_lobby_update
+  end
 end

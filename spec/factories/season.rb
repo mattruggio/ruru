@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :season do
-    trait :with_owner do
+    trait :with_user do
       transient do
-        owner { create(:user) }
-        owner_team_code { "CHI" }
+        user { create(:user) }
+        team_code { "CHI" }
       end
 
       after(:build) do |season, evaluator|
-        season.teams << build(:team, user: evaluator.owner, code: evaluator.owner_team_code)
+        season.teams << build(:team, user: evaluator.user, code: evaluator.team_code)
       end
     end
   end

@@ -1,0 +1,3 @@
+<%= turbo_stream.update "teams" do %>
+  <%= render partial: "seasons/lobby/teams", formats: %i[html], locals: { season: } %>
+<% end %>

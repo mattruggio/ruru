@@ -1,9 +1,9 @@
 class CreateSeasonForm < ApplicationForm
-  attr_accessor :owner
+  attr_accessor :user
 
-  attribute :owner_team_code, :string
+  attribute :team_code, :string
 
-  validates :owner_team_code,
+  validates :team_code,
     presence: true,
     inclusion: { in: Team::TEAM_CODES, allow_blank: true }
 
@@ -14,7 +14,7 @@ class CreateSeasonForm < ApplicationForm
 
     ActiveRecord::Base.transaction do
       @season = Season.create!
-      @season.teams.create!(user: owner, code: owner_team_code, admin: true)
+      @season.teams.create!(user:, code: team_code, admin: true)
     end
 
     true

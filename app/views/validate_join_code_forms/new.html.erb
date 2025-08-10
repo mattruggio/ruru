@@ -1,0 +1,16 @@
+<% content_for(:title, "Join Season") %>
+
+<h2>Find Season</h2>
+
+<%= form_with model: @validate_join_code_form do |f| %>
+  <%= render "shared/errors", model: @validate_join_code_form %>
+
+  <p>
+    <%= f.label :join_code %><br>
+    <%= f.text_field :join_code %>
+  </p>
+
+  <p>
+    <%= f.submit "Find" %>
+  </p>
+<% end %>

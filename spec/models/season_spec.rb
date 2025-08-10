@@ -11,7 +11,7 @@ RSpec.describe Season, type: :model do
 
   describe "#available_team_codes" do
     it "returns the available team codes for the season" do
-      season = create(:season, :with_owner)
+      season = create(:season, :with_user)
 
       expect(season.available_team_codes).to match_array(Team::TEAM_CODES - [ 'CHI' ])
     end

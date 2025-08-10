@@ -2,7 +2,7 @@ class SeasonsController < ApplicationController
   before_action :set_season, only: :show
 
   def index
-    @seasons = Current.user.seasons.order(created_at: :desc)
+    @seasons = Current.user.seasons.order(created_at: :desc).includes(:teams)
   end
 
   def show

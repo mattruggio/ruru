@@ -1,0 +1,20 @@
+<%= turbo_frame_tag "teams" do %>
+  <table>
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>User</th>
+        <th>Admin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% season.teams.order(:code).each do |team| %>
+        <tr>
+          <td><%= team.code %></td>
+          <td><%= team.user.email_address %></td>
+          <td><%= team.admin? ? "Yes" : "No" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

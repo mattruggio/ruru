@@ -15,6 +15,25 @@ class Season < ApplicationRecord
     Team::TEAM_CODES - teams.pluck(:code)
   end
 
+  def admin?(user)
+    teams.select { |t| t.user_id == user.id && t.admin? }.any?
+  end
+
+  def user?(user)
+    teams.where(user:).any?
+  end
+
+  def broadcast_async_lobby_update
+    return unless waiting_for_users?
+
+    broadcast_render_later_to(
+      [ self, "lobby" ],
+      partial: "seasons/lobby/teams",
+      formats: %i[turbo_stream],
+      locals: { season: self }
+    )
+  end
+
   private
 
   def assign_join_code

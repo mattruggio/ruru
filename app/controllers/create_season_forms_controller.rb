@@ -1,11 +1,10 @@
 class CreateSeasonFormsController < ApplicationController
   def new
-    @create_season_form = CreateSeasonForm.new(owner: Current.user)
+    @create_season_form = CreateSeasonForm.new(user: Current.user)
   end
 
   def create
-    @create_season_form = CreateSeasonForm.new(create_season_form_params)
-    @create_season_form.owner = Current.user
+    @create_season_form = CreateSeasonForm.new(create_season_form_params.merge(user: Current.user))
 
     if @create_season_form.save
       redirect_to @create_season_form.season
@@ -17,6 +16,6 @@ class CreateSeasonFormsController < ApplicationController
   private
 
   def create_season_form_params
-    params.require(:create_season_form).permit(:owner_team_code)
+    params.require(:create_season_form).permit(:team_code)
   end
 end

@@ -1,3 +1,4 @@
+<%= turbo_stream_from @season, "lobby", channel: SeasonChannel %>
 <% content_for(:title, "Lobby") %>
 
 <%= render partial: "seasons/header", locals: { season: @season } %>
@@ -5,22 +6,7 @@
 <h3>Lobby</h3>
 
 <p>
-  Join code: <%= @season.join_code %>
+  Join code & link: <%= link_to @season.join_code, new_join_season_form_path(join_code: @season.join_code) %>
 </p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Team</th>
-      <th>User</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.code %></td>
-        <td><%= team.user.email_address %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: "seasons/lobby/teams", locals: { season: @season } %>
