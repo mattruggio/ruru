@@ -3,8 +3,6 @@ class CreateSeasonForm < ApplicationForm
 
   attribute :owner_team_code, :string
 
-  attribute :joinable, :boolean, default: true
-
   validates :owner_team_code,
     presence: true,
     inclusion: { in: Team::TEAM_CODES, allow_blank: true }
@@ -15,8 +13,8 @@ class CreateSeasonForm < ApplicationForm
     return false unless valid?
 
     ActiveRecord::Base.transaction do
-      @season = Season.create!(joinable:)
-      @season.teams.create!(user: owner, code: owner_team_code)
+      @season = Season.create!
+      @season.teams.create!(user: owner, code: owner_team_code, admin: true)
     end
 
     true

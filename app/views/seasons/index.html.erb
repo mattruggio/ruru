@@ -1,0 +1,29 @@
+<% content_for(:title, "Seasons") %>
+
+<h2>Seasons</h2>
+
+<ul>
+  <li><%= link_to "Create New Season", new_create_season_form_path %></li>
+  <li><%= link_to "Join Season", new_locate_season_form_path %></li>
+</ul>
+
+<% if @seasons.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Created At</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @seasons.each do |season| %>
+        <tr>
+          <td><%= link_to season.created_at, season %></td>
+          <td><%= season.workflow_state.humanize %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No seasons found.</p>
+<% end %>

@@ -5,6 +5,7 @@ class CreateTeams < ActiveRecord::Migration[8.0]
       t.belongs_to :user, null: false, foreign_key: false
       t.string :code, null: false, default: "", limit: 3
       t.boolean :admin, null: false, default: false
+      t.integer :draft_position
 
       t.timestamps
     end

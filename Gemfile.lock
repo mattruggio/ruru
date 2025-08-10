@@ -116,7 +116,13 @@ GEM
     factory_bot_rails (6.5.0)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
+    ffi (1.17.1-aarch64-linux-gnu)
+    ffi (1.17.1-aarch64-linux-musl)
+    ffi (1.17.1-arm-linux-gnu)
+    ffi (1.17.1-arm-linux-musl)
     ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x86_64-linux-gnu)
+    ffi (1.17.1-x86_64-linux-musl)
     formatador (1.1.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
@@ -408,6 +414,10 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    workflow (3.1.1)
+    workflow-activerecord (6.0.1)
+      activerecord (>= 6.0)
+      workflow (~> 3.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.3)
@@ -452,6 +462,8 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  workflow (~> 3.1)
+  workflow-activerecord (~> 6.0)
 
 BUNDLED WITH
    2.6.6

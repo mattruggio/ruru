@@ -2,20 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Season, type: :model do
   describe "creation" do
-    context "when joinable" do
-      it "assigns join_code" do
-        season = Season.create!
+    it "assigns join_code" do
+      season = Season.create!
 
-        expect(season.join_code).to be_present
-      end
-    end
-
-    context "when not joinable" do
-      it "does not assign join_code" do
-        season = Season.create!(joinable: false)
-
-        expect(season.join_code).to be_nil
-      end
+      expect(season.join_code).to be_present
     end
   end
 

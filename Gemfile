@@ -68,3 +68,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "workflow", "~> 3.1"
+
+gem "workflow-activerecord", "~> 6.0"

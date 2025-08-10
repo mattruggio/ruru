@@ -5,6 +5,10 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  has_many :teams, dependent: :nullify
+
+  has_many :seasons, through: :teams
+
   validates :email_address,
     presence: true,
     length: { maximum: 255 },

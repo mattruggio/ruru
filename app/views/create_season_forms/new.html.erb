@@ -1,0 +1,25 @@
+<% content_for(:title, "Create New Season") %>
+
+<h2>Create New Season</h2>
+
+<%= form_with model: @create_season_form do |f| %>
+  <% if @create_season_form.errors.any? %>
+    <div style="color: red;">
+      <p><strong><%= pluralize(@create_season_form.errors.count, "error") %> prevented the season from being created:</strong></p>
+      <ul>
+        <% @create_season_form.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :owner_team_code, "Your Team Code" %><br>
+    <%= f.select :owner_team_code, options_for_select(Team::TEAM_CODES.map { |code| [code, code] }, @create_season_form.owner_team_code), { prompt: "Select your team" } %>
+  </p>
+
+  <p>
+    <%= f.submit "Create Season" %>
+  </p>
+<% end %>

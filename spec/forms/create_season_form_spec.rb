@@ -7,22 +7,11 @@ RSpec.describe CreateSeasonForm, type: :model do
 
   subject(:form) { CreateSeasonForm.new(owner: matty, owner_team_code: chicago_team_code) }
 
-  it "creates new joinable season" do
+  it "creates new season" do
     expect(form).to be_valid
     expect(form.save).to be_truthy
 
     expect(form.season).to be_persisted
-    expect(form.season).to be_joinable
-  end
-
-  it "creates new unjoinable season" do
-    form.joinable = false
-
-    expect(form).to be_valid
-    expect(form.save).to be_truthy
-
-    expect(form.season).to be_persisted
-    expect(form.season).not_to be_joinable
   end
 
   it "creates owner team" do

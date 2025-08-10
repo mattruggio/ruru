@@ -1,5 +1,7 @@
-matt = User.find_or_create_by!(email_address: "mattruggio@icloud.com") do |user|
+User.find_or_create_by!(email_address: "mattruggio@icloud.com") do |user|
   user.password = user.password_confirmation = "Changemeplz123~"
 end
 
-first_season = Season.create!
+User.find_or_create_by!(email_address: "mattruggio@gmail.com") do |user|
+  user.password = user.password_confirmation = "Changemeplz123~"
+end

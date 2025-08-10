@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Ruru" %></title>
+    <title><%= content_for(:title) || "Retro Live" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -29,6 +29,8 @@
         <ul>
           <li><%= link_to "Home", root_path %></li>
           <% if authenticated? %>
+            <li><%= link_to "Seasons", seasons_path %></li>
+            <li><%= Current.user.email_address %></li>
             <li><%= link_to "Logout", Current.session, data: { turbo_method: :delete } %></li>
           <% else %>
             <li><%= link_to "Login", new_session_path %></li>

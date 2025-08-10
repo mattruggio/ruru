@@ -1,4 +1,10 @@
 class Season < ApplicationRecord
+  include WorkflowActiverecord
+
+  workflow do
+    state :waiting_for_users
+  end
+
   has_many :teams, dependent: :destroy
 
   before_create :assign_join_code
@@ -12,6 +18,6 @@ class Season < ApplicationRecord
   private
 
   def assign_join_code
-    self.join_code = joinable? ? SecureRandom.hex(32) : nil
+    self.join_code = SecureRandom.hex(10)
   end
 end
