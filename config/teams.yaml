@@ -1,0 +1,90 @@
+ATL: 
+  location: Atlanta
+  name: Hawks
+BKN: 
+  location: Brooklyn
+  name: Nets
+BOS: 
+  location: Boston
+  name: Celtics
+CHA:
+  location: Charlotte
+  name: Hornets
+CHI: 
+  location: Chicago
+  name: Bulls
+CLE: 
+  location: Cleveland
+  name: Cavaliers
+DAL: 
+  location: Dallas
+  name: Mavericks
+DEN: 
+  location: Denver
+  name: Nuggets
+DET: 
+  location: Detroit
+  name: Pistons
+GSW: 
+  location: Golden State
+  name: Warriors
+HOU: 
+  location: Houston
+  name: Rockets
+IND:
+  location: Indiana
+  name: Pacers
+LAC:
+  location: Los Angeles
+  name: Clippers
+LAL: 
+  location: Los Angeles
+  name: Lakers
+MEM: 
+  location: Memphis
+  name: Grizzlies
+MIA: 
+  location: Miami
+  name: Heat
+MIL:
+  location: Milwaukee
+  name: Bucks
+MIN: 
+  location: Minnesota
+  name: Timberwolves
+NOP: 
+  location: New Orleans
+  name: Pelicans
+NYK: 
+  location: New York
+  name: Knicks
+OKC: 
+  location: Oklahoma City
+  name: Thunder
+ORL: 
+  location: Orlando
+  name: Magic
+PHI:
+  location: Philadelphia
+  name: 76ers
+PHX:
+  location: Phoenix
+  name: Suns
+POR:
+  location: Portland
+  name: Trailblazers
+SAC:
+  location: Sacramento
+  name: Kings
+SAS:
+  location: San Antonio
+  name: Spurs
+TOR:
+  location: Toronto
+  name: Raptors
+UTA:
+  location: Utah
+  name: Jazz
+WSH:
+  location: Washington
+  name: Wizards

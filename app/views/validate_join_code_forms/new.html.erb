@@ -5,12 +5,12 @@
 <%= form_with model: @validate_join_code_form do |f| %>
   <%= render "shared/errors", model: @validate_join_code_form %>
 
-  <p>
+  <div>
     <%= f.label :join_code %><br>
     <%= f.text_field :join_code %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <%= f.submit "Find" %>
-  </p>
+  </div>
 <% end %>

@@ -1,0 +1,11 @@
+<% content_for(:title, "Create New Season") %>
+
+<h2>Select Your Team</h2>
+
+<% Store.teams_by_code.each do |code, team_hash| %>
+  <div>
+    [<%= code %>] <%= team_hash["location"] %> <%= team_hash["name"] %>
+    (<%= link_to "Select", seasons_path(team_code: code), data: { turbo_method: :post } %>)
+  </div>
+<% end %>
+

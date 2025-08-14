@@ -1,0 +1,21 @@
+<%= turbo_frame_tag dom_id(season, :info) do %>
+  <ul>
+    <li><%= pluralize(season.teams.controlled_by_users.count, "User") %></li>
+    <li><%= link_to "Draft Logs", [season, :draft_logs], target: "_top" %></li>
+    <li><%= link_to "Players", [season, :players], target: "_top" %></li>
+    <li><%= link_to "Teams", [season, :teams], target: "_top" %></li>
+  </ul>
+  <fieldset>
+    <div>
+      <strong><%= season.workflow_state.humanize %></strong>
+    </div>
+    <% if season.waiting_for_users? %>
+      <div>
+        Join code & link: <%= link_to season.join_code, new_join_season_form_path(join_code: season.join_code) %>
+      </div>
+      <div>
+        <%= link_to "Begin Draft", [:begin_draft, season], data: { turbo_method: :post, turbo_confirm: "All ready to go?" } %>
+      </div>
+    <% end %>
+  </fieldset>
+<% end %>

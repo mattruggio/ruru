@@ -1,8 +1,7 @@
-<h2>Season</h2>
+<%= turbo_stream_from @season, channel: SeasonChannel %>
 
-<ul>
-  <li><%= season.created_at %></li>
-  <li><%= season.workflow_state.humanize %></li>
-</ul>
+<h2><%= season.name %></h2>
 
-<hr>
+<div>Your Team: <%= season.team_for_user(Current.user).code %></div>
+
+<%= render partial: "seasons/info", locals: { season: @season } %>

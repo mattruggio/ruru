@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(season, :info) do %>
+  <%= render partial: "seasons/info", formats: %i[html], locals: { season: } %>
+<% end %>

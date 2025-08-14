@@ -1,6 +1,6 @@
 <% if model.errors.any? %>
   <div style="color: red;">
-    <p><strong><%= pluralize(model.errors.count, "error") %>:</strong></p>
+    <div><strong><%= pluralize(model.errors.count, "error") %>:</strong></div>
     <ul>
       <% model.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

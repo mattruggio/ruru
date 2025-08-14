@@ -1,0 +1,11 @@
+<%= turbo_stream.replace team do %>
+  <%= render partial: "seasons/teams/team", locals: { team: } %>
+<% end %>
+
+<%= turbo_stream.replace dom_id(season, :info) do %>
+  <%= render partial: "seasons/info", formats: %i[html], locals: { season: } %>
+<% end %>
+
+<% turbo_stream.replace dom_id(season, :join) do %>
+  <%= render partial: "join_season_forms/team", locals: { team: } %>
+<% end %>

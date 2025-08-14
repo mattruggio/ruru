@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_06_015528) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_11_003739) do
+  create_table "players", force: :cascade do |t|
+    t.integer "season_id", null: false
+    t.string "code", limit: 20, null: false
+    t.string "first_name", limit: 100, default: "", null: false
+    t.string "last_name", limit: 100, default: "", null: false
+    t.integer "position", null: false
+    t.integer "overall", default: 0, null: false
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["season_id", "code"], name: "index_players_on_season_id_and_code", unique: true
+    t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
   create_table "seasons", force: :cascade do |t|
     t.string "join_code", limit: 64
     t.string "workflow_state", default: "waiting_for_users", null: false
@@ -30,8 +44,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_06_015528) do
 
   create_table "teams", force: :cascade do |t|
     t.integer "season_id", null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.string "code", limit: 3, default: "", null: false
+    t.string "location", limit: 100, default: "", null: false
+    t.string "name", limit: 100, default: "", null: false
     t.boolean "admin", default: false, null: false
     t.integer "draft_position"
     t.datetime "created_at", null: false

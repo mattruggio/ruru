@@ -17,15 +17,14 @@ Rails.application.routes.draw do
 
   resources :passwords, param: :token
 
-  resources :create_season_forms, only: %i[new create]
-
   resources :validate_join_code_forms, only: %i[new create]
 
   resources :join_season_forms, only: %i[new create]
 
-  resources :seasons, only: %i[index show] do
-    resource :lobby, only: :show, controller: "seasons/lobby"
-    resource :draft, only: :show, controller: "seasons/draft"
+  resources :seasons, only: %i[index show new create] do
+    resources :teams, only: :index, controller: "seasons/teams"
+    resources :draft_logs, only: :index, controller: "seasons/draft_logs"
+    resources :players, only: :index, controller: "seasons/players"
 
     member do
       post :begin_draft

@@ -1,0 +1,6 @@
+<%= turbo_frame_tag team do %>
+  <div>
+    [<%= team.code %>] <%= team.location %> <%= team.name %>
+    (<%= team.user&.email_address || "CPU" %>)
+  </div>
+<% end %>

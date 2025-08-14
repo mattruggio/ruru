@@ -1,0 +1,6 @@
+<% content_for(:title, "Teams") %>
+<%= render partial: "seasons/header", locals: { season: @season } %>
+
+<h2>Teams</h2>
+
+<%= render partial: "seasons/teams/teams", locals: { season: @season } %>

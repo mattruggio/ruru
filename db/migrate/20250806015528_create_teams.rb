@@ -2,8 +2,10 @@ class CreateTeams < ActiveRecord::Migration[8.0]
   def change
     create_table :teams do |t|
       t.belongs_to :season, null: false, foreign_key: false
-      t.belongs_to :user, null: false, foreign_key: false
+      t.belongs_to :user, null: true, foreign_key: false
       t.string :code, null: false, default: "", limit: 3
+      t.string :location, null: false, default: "", limit: 100
+      t.string :name, null: false, default: "", limit: 100
       t.boolean :admin, null: false, default: false
       t.integer :draft_position
 

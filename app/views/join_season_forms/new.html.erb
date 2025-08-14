@@ -1,18 +1,8 @@
+<%= turbo_stream_from @season, channel: JoinSeasonChannel %>
 <% content_for(:title, "Join Season") %>
 
-<h2>Join Season</h2>
+<h2>Select Your Team</h2>
 
-<%= form_with model: @join_season_form, url: join_season_forms_path(join_code: params[:join_code]) do |f| %>
-  <%= render "shared/errors", model: @join_season_form %>
-
-  <%= render partial: "seasons/lobby/teams", locals: { season: @season } %>
-
-  <p>
-    <%= f.label :team_code %><br>
-    <%= f.select :team_code, options_for_select(@join_season_form.available_team_codes.map { |code| [code, code] }, @join_season_form.team_code), { prompt: "Select your team" } %>
-  </p>
-
-  <p>
-    <%= f.submit "Join" %>
-  </p>
+<% @season.teams.each do |team| %>
+  <%= render partial: "join_season_forms/team", locals: { team: } %>
 <% end %>

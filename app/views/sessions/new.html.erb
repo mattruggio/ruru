@@ -1,15 +1,15 @@
 <h2>Login</h2>
 
 <%= form_with url: session_path do |form| %>
-  <p>
+  <div>
     <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= form.submit "Sign in" %>
-  </p>
+  </div>
 <% end %>
 <br>
 

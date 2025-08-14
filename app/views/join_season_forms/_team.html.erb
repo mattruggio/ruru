@@ -1,0 +1,10 @@
+<%= turbo_frame_tag team do %>
+  <div>
+    [<%= team.code %>] <%= team.location %> <%= team.name %>
+    <% if team.controlled_by_user? %>
+      (<%= team.user.email_address %>)
+    <% else %>
+      (<%= link_to "Select", join_season_forms_path(join_code: team.season.join_code, team_code: team.code), data: { turbo_method: :post } %>)
+    <% end %>
+  </div>
+<% end %>
